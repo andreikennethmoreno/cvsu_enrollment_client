@@ -40,7 +40,7 @@ export default function Dashboard() {
           </h1>
 
           <div className="btn-container">
-            <Link to="/login">
+            <Link to="/admission">
               <button className="apply-now">APPLY NOW</button>
             </Link>
             
