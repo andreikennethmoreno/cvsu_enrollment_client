@@ -44,7 +44,7 @@ describe("Login Component - Registrar Role", () => {
     // Wait for successful response
     await screen.findByText(/login successful/i); // Adjust if success message isn't rendered
     expect(axios.post).toHaveBeenCalledWith(
-      "http://localhost:3000/api/auth/login",
+      "https://cvsu-enrollment-server.onrender.com/api/auth/login",
       {
         email: "registrar@example.com",
         password: "registrarpassword",

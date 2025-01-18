@@ -101,7 +101,7 @@ export default function RegistrarStudent() {
   const fetchStudents = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:3000/api/students", {
+      const response = await axios.get("https://cvsu-enrollment-server.onrender.com/api/students", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -118,7 +118,7 @@ export default function RegistrarStudent() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `http://localhost:3000/api/students/${id}`,
+        `https://cvsu-enrollment-server.onrender.com/api/students/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -149,7 +149,7 @@ export default function RegistrarStudent() {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:3000/api/students/${id}`, {
+      await axios.delete(`https://cvsu-enrollment-server.onrender.com/api/students/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

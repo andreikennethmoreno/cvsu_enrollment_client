@@ -25,7 +25,7 @@ function StudentPortal() {
   const fetchStudentData = async (id) => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/students/${id}`,
+        `https://cvsu-enrollment-server.onrender.com/api/students/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -29,7 +29,7 @@ export default function AdminDashboard() {
       const token = localStorage.getItem("token");
 
       // Make the request with the token in the Authorization header
-      const response = await axios.get("http://localhost:3000/api/students", {
+      const response = await axios.get("https://cvsu-enrollment-server.onrender.com/api/students", {
         headers: {
           Authorization: `Bearer ${token}`, // Attach token to the request
         },

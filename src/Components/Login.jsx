@@ -14,7 +14,7 @@ export default function Login() {
     e.preventDefault();
   
     try {
-      const response = await axios.post("http://localhost:3000/api/auth/login", {
+      const response = await axios.post("https://cvsu-enrollment-server.onrender.com/api/auth/login", {
         email,
         password,
         role,
