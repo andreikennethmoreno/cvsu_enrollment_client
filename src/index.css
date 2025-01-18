@@ -1,0 +1,689 @@
+@import url("https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,500&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Mono+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap");
+
+body,
+html,
+.containers {
+  margin: 0;
+  background-color: #d9d9d9a1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --header-height: 126px;
+}
+
+.header {
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1100;
+  background: #177054;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-left: 100px;
+  padding-right: 20px; /* Add padding to the right side */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header p {
+  padding: 0;
+  margin-top: 20px;
+  text-align: left;
+  font-family: "Rubik Mono One", monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  text-shadow: 2px 2px 2px #000000;
+}
+
+.logo {
+  width: 101px; /* Adjust size as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 10px; /* Space between image and title */
+}
+
+.header-buttons {
+  display: flex;
+  gap: 10px; /* Space between the buttons */
+}
+
+.header-buttons .btn {
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+
+
+/*NAVBAR*/
+.desktop-nav {
+  justify-content: space-around;
+  align-items: center;
+  height: 10vh;
+  width: 100%;
+  background-color: #018040;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.navbar .nav-name {
+  font-size: 40px;
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
+
+.navigation .nav-link {
+  color: #ffffff;
+  gap: 2rem;
+  list-style: none;
+  font-size: 1.5rem;
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* PROFILE SECTION */
+
+#profile {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  height: 90vh;
+}
+
+.apply-now {
+  width: 192px;
+  background-color: #007b55;
+  color: white;
+  border: 2px solid #000000;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-family: "Rubik Mono One", monospace;
+  font-weight: 400;
+  font-style: normal;
+  justify-content: center;
+}
+
+.apply-now:hover {
+  background-color: #004b33 !important;
+  color: white !important;
+}
+
+.section__pic-container {
+  display: flex;
+  height: 300px;
+  width: 300px;
+  margin: auto 0;
+}
+
+.section__text {
+  align-self: center;
+  text-align: center;
+}
+
+.section__text__p1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  text-align: left;
+  font-size: 2rem;
+  text-shadow: 2px 2px 2px #3c9e65;
+  color: rgb(0, 0, 0);
+}
+
+.section__text__p2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-family: "Rubik Mono One", monospace;
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 2px #3c9e65;
+}
+.tittles {
+  font-family: "Rubik Mono One", monospace;
+  font-size: 3rem;
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 2px #3c9e65;
+}
+
+.titttle {
+  font-family: "Rubik Mono One", monospace;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 2px #3c9e65;
+}
+.application-details {
+  font-family: "Roboto Slab", serif;
+  font-size: 1.8rem; /* Adjust to your preference */
+  color: rgb(0, 0, 0);
+  line-height: 1.5; /* Better line spacing for readability */
+}
+
+#about {
+  position: relative;
+  justify-content: center;
+}
+
+.about-containers {
+  gap: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  padding: 20px;
+}
+
+.about-details-container {
+  justify-content: center;
+  flex-direction: column;
+}
+
+.about-containers,
+.about-details-container {
+  display: flex;
+}
+
+.details-container {
+  padding: 1.5rem;
+  flex: 1;
+  background: #e7f87e4d;
+  border-radius: 2rem;
+  text-align: center;
+  box-shadow: 4px 4px 3px #00000040;
+}
+.tittle-about {
+  font-family: "Roboto Slab", serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 45px;
+  text-align: center;
+}
+.details-container h3 {
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+}
+
+.details-container p {
+  font-family: "Inconsolata", monospace; /* Changed font-family to match Course.css */
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+}
+
+.section-container {
+  gap: 4rem;
+  height: 80%;
+}
+
+#Course {
+  position: relative;
+  justify-content: center;
+}
+
+.course-content {
+  padding: 50px 200px;
+  color: rgb(0, 0, 0);
+  margin-top: 5vh;
+}
+.details-container.course {
+  background: #17705433;
+  border-radius: 2rem;
+  text-align: center;
+  box-shadow: 4px 4px 3px 0px #00000040;
+}
+.logos {
+  width: 40%;
+}
+
+.details-container.course p {
+  font-family: "Inconsolata", monospace; /* Changed font-family to match Course.css */
+  font-weight: 400;
+  font-style: normal;
+  font-size: 25px;
+}
+
+.footer {
+  background-color: #3c9e65; /* Green background */
+  height: 100px;
+  color: white;
+  font-family: "Rubik Mono One", monospace;
+}
+
+.footer p {
+  font-size: 0.8rem; /* Adjust text size */
+  margin: 0;
+  padding: 0;
+}
+
+.footer .container {
+  max-width: 100%;
+}
+
+/* Login/Signup forms */
+.login-signup-form {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.login-signup-form .form {
+  width: 500px;
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  padding: 34px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2);
+}
+
+.login-signup-form .form h2 {
+  font-size: 28px;
+  color: #333333;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.login-signup-form .form input,
+.login-signup-form .form select {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.login-signup-form .form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.login-signup-form .form button {
+  background-color: #3c9e65;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-signup-form .form button:hover {
+  background-color: #2c7248;
+}
+
+.login-signup-form .form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 18px;
+  text-align: center;
+}
+
+.login-signup-form .form .message a {
+  color: #3c9e65;
+  text-decoration: none;
+}
+
+.login-signup-form .form a :hover {
+  background-color: #3c9e6548;
+}
+input {
+  outline: 0;
+  background: #ffffff;
+  width: 100%;
+  border: 2px solid #e6e6e6;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  transition: all 0.3s;
+  border-radius: 10px;
+}
+
+input:focus {
+  border-color: #177054;
+}
+select {
+  outline: 0;
+  background: #ffffff;
+  width: 100%;
+  border: 2px solid #e6e6e6;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  transition: all 0.3s;
+  border-radius: 10px;
+}
+h2,
+.form-section,
+label,
+.form-row,
+input,
+button {
+  position: relative; /* Position elements relative to their container */
+  z-index: 1; /* Bring content above the blurred background */
+}
+.form-section {
+  margin-bottom: 20px;
+}
+.form-section input {
+  margin-bottom: 10px;
+}
+.form-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.button-container button {
+  width: 90px;
+  padding: 10px;
+  font-size: 18px;
+  background-color: #3c9e65;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: auto;
+  text-align: center;
+}
+.button-container button:hover {
+  background-color: #296d45;
+}
+
+#register {
+  margin-top: 126px;
+}
+#login {
+  margin-top: 126px;
+}
+
+
+/* Sidebar styles */
+.sidebar {
+  height: calc(100vh - 126px); /* Adjust height for header */
+  width: 250px;
+  background-color: #177054;
+  color: #fff;
+  padding: 1rem;
+  position: fixed;
+  top: 126px; /* Sidebar starts below the header */
+  left: 0;
+  transition: all 0.3s ease-in-out;
+  z-index: 1050;
+  transform: translateX(-100%);
+}
+.sidebar.show {
+  transform: translateX(0);
+}
+.sidebar .sidebar-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+.sidebar a:hover {
+  color: #5cbd85;
+}
+.sidebar .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.sidebar-toggler {
+  background-color: transparent;
+  border: none;
+  color: #000000;
+  font-size: 1.5rem;
+  position: fixed;
+  top: 136px; /* Place the toggler slightly below the header */
+  left: 10px;
+  z-index: 1060;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    transform: translateX(0);
+  }
+  .sidebar-toggler {
+    display: none;
+  }
+}
+.main-content {
+  margin-left: 250px;
+  height: 86vh;
+  padding: 30px;
+  transition: all 0.3s ease-in-out;
+  margin-top: var(--header-height);
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    padding: 5px;
+    height: 100%;
+  }
+}
+
+.no-scroll {
+  overflow: hidden; /* Prevent scrolling */
+  height: 100%; /* Ensure the page doesn't expand vertically */
+}
+
+.sidebar.show + .main-content {
+  margin-left: 0;
+}
+
+.form {
+  padding-top: var(--header-height); /* Adds space equal to the header height */
+  margin-top: 0; /* Remove any top margin to avoid unnecessary space */
+}
+
+.divider {
+  border: none;
+  border-bottom: 2px solid #b1b1b1;
+  margin: 1.5rem 0;
+}
+
+.progress-bar-container {
+  position: relative;
+}
+
+.image-upload-container {
+  position: relative;
+}
+.blur-background {
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+/* MODALSS */
+.modal-overlay {
+  padding-top: var(--header-height); /* Adds space equal to the header height */
+  margin-top: 0; /* Remove any top margin to avoid unnecessary space */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 5000; /* Ensure modal is on top */
+  backdrop-filter: blur(10px); /* Add blur effect to the background */
+}
+
+.modal-contents {
+  text-align: left;
+  z-index: 1001;
+  background-color: #ffffff;
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 30%;
+  border-radius: 10px;
+}
+
+.modal-headers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+  margin-bottom: 10px;
+}
+
+.close-button {
+  border: none;
+  background-color: transparent;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000000;
+}
+.close-button:hover {
+  color: #dc3545;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-headers h5 {
+  font-weight: bold;
+  color: #000000;
+  font-size: 1.25rem;
+}
+
+.modal-bodys ul {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1.6;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid #dee2e6;
+  padding: 1rem 0 0;
+}
+.modal-footer .btn {
+  background-color: #0d6efd;
+  color: white;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 5px;
+}
+.modal-footer .btn:hover {
+  background-color: #0b5ed7;
+}
+
+.sidenav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #f8f9fa;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+  padding-top: 20px;
+  display: none;
+  z-index: 1000;
+}
+
+.sidenav.open {
+  display: block;
+}
+
+.sidenav-toggle {
+  position: fixed;
+  top: 126px !important;
+  left: 5px !important;
+  z-index: 2000;
+  padding: 0;
+  font-size: 2rem !important;
+  background-color: transparent;
+  border: none;
+  color: #333;
+}
+
+.sidenav-item {
+  width: 100%;
+}
+
+.sidenav-link {
+  text-decoration: none !important; /* Ensure underline is removed */
+  font-size: 1.1rem;
+  color: #333;
+  display: block;
+  padding: 10px;
+  text-align: left;
+}
+
+.sidenav-link:hover {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.sidenav-link:focus {
+  outline: none; /* Prevent focus outline */
+}
+
+.progress-bar-line {
+  height: 2px;
+  background-color: #6c757d;
+  margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+  .sidenav {
+    width: 200px;
+    padding-top: 170px;
+    margin-top: 0;
+  }
+  .sidenav-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 3rem;
+    z-index: 2000;
+  }
+  .upload-section .d-flex {
+    
+    flex-direction: column !important;
+    align-items: stretch; /* Ensures full-width alignment */
+  }
+  .mod{
+    padding-top: 110px;
+  }
+}
+.check{
+  padding: 5px;
+}
