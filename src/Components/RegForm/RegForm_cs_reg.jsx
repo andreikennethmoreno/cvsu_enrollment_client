@@ -1,52 +1,51 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function RegForm_cs_reg() {
   const location = useLocation();
   const { yearLevel, department } = location.state;
   const studentType = "regular";
   const navigate = useNavigate();
+  const [disableSuffix, setDisableSuffix] = useState(true); // Add this line
+  
 
   const [imagePreview, setImagePreview] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   // Form States
-  const [lastName, setLastName] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [middleName, setMiddleName] = useState("");
-  const [suffix, setSuffix] = useState("");
-  const [disableSuffix, setDisableSuffix] = useState(false);
+const [lastName, setLastName] = useState("");
+const [firstName, setFirstName] = useState("");
+const [middleName, setMiddleName] = useState("");
+const [suffix, setSuffix] = useState("");
+const [dateOfBirth, setDateOfBirth] = useState("");
+const [placeOfBirth, setPlaceOfBirth] = useState("");
+const [age, setAge] = useState("");
+const [status, setStatus] = useState("");
+const [mobile, setMobile] = useState("");
+const [email, setEmail] = useState("");
+const [religion, setReligion] = useState("");
+const [citizenship, setCitizenship] = useState("");
+const [others, setOthers] = useState("");
+const [houseStreet, setHouseStreet] = useState("");
+const [region, setRegion] = useState("");
+const [province, setProvince] = useState("");
+const [municipality, setMunicipality] = useState("");
+const [zipcode, setZipcode] = useState("");
+const [guardianName, setGuardianName] = useState("");
+const [guardianLastName, setGuardianLastName] = useState("");
+const [guardianFirstName, setGuardianFirstName] = useState("");
+const [guardianMiddleName, setGuardianMiddleName] = useState("");
+const [guardianRelation, setGuardianRelation] = useState("");
 
-  const [dateOfBirth, setDateOfBirth] = useState("");
-  const [placeOfBirth, setPlaceOfBirth] = useState("");
-  const [age, setAge] = useState("");
-  const [status, setStatus] = useState("");
 
-  const [mobile, setMobile] = useState("");
-  const [email, setEmail] = useState("");
-  const [religion, setReligion] = useState("");
-  const [citizenship, setCitizenship] = useState("");
-  const [others, setOthers] = useState("");
-
-  const [houseStreet, setHouseStreet] = useState("");
-  const [region, setRegion] = useState("");
-  const [province, setProvince] = useState("");
-  const [municipality, setMunicipality] = useState("");
-  const [zipcode, setZipcode] = useState("");
-
-  const [guardianLastName, setGuardianLastName] = useState("");
-  const [guardianFirstName, setGuardianFirstName] = useState("");
-  const [guardianMiddleName, setGuardianMiddleName] = useState("");
-  const [guardianRelation, setGuardianRelation] = useState("");
-
-  // Validation Rules
-  const nameRegex = /^[A-Za-z ]+$/; // Only letters and spaces
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email validation
-  const mobileRegex = /^[0-9]{10,11}$/; // 10 or 11-digit phone number (adjust as needed)
+  const nameRegex = /^[A-Za-z ]+$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const mobileRegex = /^[0-9]{10,11}$/;
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-
     if (file) {
       const fileSizeInKB = file.size / 1024;
       if (fileSizeInKB > 200) {
@@ -54,9 +53,7 @@ function RegForm_cs_reg() {
         e.target.value = "";
         return;
       }
-
       setErrorMessage("");
-
       const reader = new FileReader();
       reader.onload = () => {
         setImagePreview(reader.result);
@@ -70,58 +67,95 @@ function RegForm_cs_reg() {
   };
 
   const validateForm = () => {
-    // Validate Name fields
-    if (!nameRegex.test(lastName) || !nameRegex.test(firstName) || 
-        (middleName && !nameRegex.test(middleName)) || 
+    if (!nameRegex.test(lastName) || !nameRegex.test(firstName) ||
+        (middleName && !nameRegex.test(middleName)) ||
         (suffix && !disableSuffix && !nameRegex.test(suffix))) {
       setErrorMessage("Invalid characters in Name fields. Letters and spaces only.");
       return false;
     }
-
-    // Validate Email
     if (email && !emailRegex.test(email)) {
       setErrorMessage("Please enter a valid email address.");
       return false;
     }
-
-    // Validate Mobile
     if (mobile && !mobileRegex.test(mobile)) {
       setErrorMessage("Please enter a valid mobile number (10-11 digits).");
       return false;
     }
-
-    // Validate Address Fields (Ensure not blank)
     if (!houseStreet.trim() || !region.trim() || !province.trim() || !municipality.trim() || !zipcode.trim()) {
       setErrorMessage("All address fields must be filled out.");
       return false;
     }
-
-    // Validate Guardian Name Fields
-    if (!nameRegex.test(guardianLastName) || !nameRegex.test(guardianFirstName) || 
+    if (!nameRegex.test(guardianLastName) || !nameRegex.test(guardianFirstName) ||
         (guardianMiddleName && !nameRegex.test(guardianMiddleName))) {
       setErrorMessage("Invalid characters in Guardian Name fields. Letters and spaces only.");
       return false;
     }
-
     setErrorMessage("");
     return true;
   };
 
-  const handleSubmit = () => {
-    if (validateForm()) {
-      let route = `/regformpt2-${department}-${studentType}`;
-      navigate(route, { state: { yearLevel, department } });
+  const handleBackendSubmit = async () => {
+    try {
+      const formData = {
+        last_name: lastName,
+        first_name: firstName,
+        middle_name: middleName,
+        suffix: suffix,
+        date_of_birth: dateOfBirth,
+        place_of_birth: placeOfBirth,
+        age: age,
+        status: status,
+        mobile_number: mobile,
+        email_address: email,
+        religion: religion,
+        citizenship: citizenship,
+        home_address: houseStreet,
+        region: region,
+        province: province,
+        municipality: municipality,
+        zip_code: zipcode,
+        guardian_name: guardianName,
+        guardian_family_name: guardianLastName,
+        guardian_first_name: guardianFirstName,
+        guardian_middle_name: guardianMiddleName,
+        guardian_relation: guardianRelation
+      };
+  
+      // Send data to backend
+      const response = await axios.post("https://cvsu-enrollment-server.onrender.com/api/preenrollments", formData);
+  
+      // Handle the response from the backend
+      if (response.data && response.data.success) {
+        setSuccessMessage("Registration successful!");
+        console.log(response.data); // Ensure the data is valid
+        // After confirming success, navigate to the next page
+        navigate(`/regformpt2-${department}-${studentType}`, { state: { yearLevel, department } });
+      } else {
+        setErrorMessage("An error occurred while submitting the form.");
+      }
+    } catch (error) {
+      setErrorMessage("An error occurred while submitting the form.");
+      console.error(error);
     }
   };
+  
 
-  // Toggle suffix field
-  const handleSuffixToggle = () => {
-    setDisableSuffix(!disableSuffix);
-    if (!disableSuffix) {
-      // If we are disabling suffix, clear it out
-      setSuffix("");
-    }
-  };
+  // Function to validate the form before submitting
+const handleSubmit = () => {
+  if (validateForm()) {
+    handleBackendSubmit(); // Call to submit the form if validation passes
+  }
+};
+
+    // Toggle suffix field
+    const handleSuffixToggle = () => {
+      setDisableSuffix(!disableSuffix);
+      if (!disableSuffix) {
+        // If we are disabling suffix, clear it out
+        setSuffix("");
+      }
+    };
+
 
   return (
     <div className="containers" style={{ marginTop: "150px" }}>
@@ -446,6 +480,15 @@ function RegForm_cs_reg() {
                   className="form-control"
                   value={guardianLastName}
                   onChange={(e) => setGuardianLastName(e.target.value)} 
+                />
+              </div>
+              <div className="col-md-3">
+                <label className="form-label">Guardian Name</label>
+                <input 
+                  type="text" 
+                  className="form-control"
+                  value={guardianName}
+                  onChange={(e) => setGuardianName(e.target.value)} 
                 />
               </div>
               <div className="col-md-3">
