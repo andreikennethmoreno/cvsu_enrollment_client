@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function AdminDashboard() {
   const [isOpen, setIsOpen] = useState(false);
   const [students, setStudents] = useState([]);
   const [error, setError] = useState(null);
+  const navigate = useNavigate(); // useNavigate hook to redirect after logout
 
   const toggleSidebar = () => {
     setIsOpen((prevIsOpen) => {
@@ -48,6 +49,14 @@ export default function AdminDashboard() {
     fetchStudents();
   }, []);
 
+  // Logout function
+  const logout = () => {
+    // Remove token from localStorage
+    localStorage.removeItem("token");
+    // Redirect to login page
+    navigate("/login"); // Adjust the path to your login page
+  };
+
   // Calculate the number of enrolled students dynamically
   const totalStudents = students.length;
   const enrolledStudents = students.length; // Assuming all students are enrolled; adjust logic as needed
@@ -70,7 +79,7 @@ export default function AdminDashboard() {
       {/* Sidebar */}
       <aside className={`sidebar ${isOpen ? "show" : ""}`}>
         <div className="sidebar-header">
-          <i className="fas fa-user-shield"></i> ADMIN
+          <i className="fas fa-user-shield"></i> DEPARTMENT HEAD
         </div>
         <nav className="nav flex-column">
           <Link to="/admin" className="nav-link">
@@ -85,6 +94,19 @@ export default function AdminDashboard() {
           <Link to="/admin/responses" className="nav-link">
             <i className="fas fa-inbox"></i> Responses
           </Link>
+          {/* Logout Button */}
+          <button
+            className="nav-link text-danger d-flex align-items-center"
+            onClick={logout}
+            style={{
+              background: "none", // Remove background
+              border: "none",     // Remove border
+              padding: "8px 12px", // Adjust padding to match the other links
+              cursor: "pointer",  // Change cursor to pointer
+            }}
+          >
+            <i className="fas fa-sign-out-alt me-2"></i> Logout
+          </button>
         </nav>
       </aside>
 

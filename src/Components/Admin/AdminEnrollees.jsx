@@ -59,20 +59,21 @@ export default function AdminEnrollees() {
     <div>
       {/* Header */}
       <header className="header">
-        <img
-          src="./images/cvsu-logo.png"
-          alt="University Logo"
-          className="logo"
-        />
-        <p>
-          CAVITE STATE UNIVERSITY <br /> BACOOR CAMPUS
-        </p>
-      </header>
+  <img
+    src="/images/cvsu-logo.png" // Path corrected
+    alt="University Logo"
+    className="logo"
+  />
+  <p>
+    CAVITE STATE UNIVERSITY <br /> BACOOR CAMPUS
+  </p>
+</header>
+
 
       {/* Sidebar */}
       <aside className={`sidebar ${isOpen ? "show" : ""}`}>
         <div className="sidebar-header">
-          <i className="fas fa-user-shield"></i> ADMIN
+          <i className="fas fa-user-shield"></i> DEPARTMENT HEAD
         </div>
         <nav className="nav flex-column">
           <Link to="/admin" className="nav-link">

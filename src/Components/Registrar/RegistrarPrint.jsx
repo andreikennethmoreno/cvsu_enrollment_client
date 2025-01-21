@@ -137,15 +137,16 @@ export default function RegistrarPrint() {
     <div>
       {/* Header */}
       <header className="header">
-        <img
-          src="./images/cvsu-logo.png"
-          alt="University Logo"
-          className="logo"
-        />
-        <p>
-          CAVITE STATE UNIVERSITY <br /> BACOOR CAMPUS
-        </p>
-      </header>
+  <img
+    src="/images/cvsu-logo.png" // Path corrected
+    alt="University Logo"
+    className="logo"
+  />
+  <p>
+    CAVITE STATE UNIVERSITY <br /> BACOOR CAMPUS
+  </p>
+</header>
+
 
       {/* Sidebar */}
       <aside className={`sidebar ${isOpen ? "show" : ""}`}>

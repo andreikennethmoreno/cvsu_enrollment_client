@@ -77,35 +77,43 @@ export default function RegistrarDashboard() {
         </p>
       </header>
 
-      {/* Sidebar */}
       <aside className={`sidebar ${isOpen ? "show" : ""}`}>
-        <div className="sidebar-header">
-          <i className="fas fa-user-shield"></i> REGISTRAR
-        </div>
-        <nav className="nav flex-column">
-          <Link to="/dashboard" className="nav-link">
-            <i className="fas fa-home"></i> Home
-          </Link>
-          <Link to="/dashboard/students" className="nav-link">
-            <i className="fas fa-user-graduate"></i> Student
-          </Link>
-          <Link to="/dashboard/masterlist" className="nav-link">
-            <i className="fas fa-list-alt"></i> Masterlist
-          </Link>
-          <Link to="/dashboard/checklist" className="nav-link">
-            <i className="fas fa-tasks"></i> Checklist
-          </Link>
-          <Link to="/dashboard/print" className="nav-link">
-            <i className="fas fa-print"></i> Printing
-          </Link>
-          
-        </nav>
+  <div className="sidebar-header">
+    <i className="fas fa-user-shield"></i> REGISTRAR
+  </div>
+  <nav className="nav flex-column">
+    <Link to="/dashboard" className="nav-link">
+      <i className="fas fa-home"></i> Home
+    </Link>
+    <Link to="/dashboard/students" className="nav-link">
+      <i className="fas fa-user-graduate"></i> Student
+    </Link>
+    <Link to="/dashboard/masterlist" className="nav-link">
+      <i className="fas fa-list-alt"></i> Masterlist
+    </Link>
+    <Link to="/dashboard/checklist" className="nav-link">
+      <i className="fas fa-tasks"></i> Checklist
+    </Link>
+    <Link to="/dashboard/print" className="nav-link">
+      <i className="fas fa-print"></i> Printing
+    </Link>
 
-        {/* Logout Button */}
-        <button className="nav-link text-danger" onClick={logout}>
-          <i className="fas fa-sign-out-alt"></i> Logout
-        </button>
-      </aside>
+    {/* Logout Button */}
+    <button
+      className="nav-link text-danger d-flex align-items-center"
+      onClick={logout}
+      style={{
+        background: "none", // Remove background
+        border: "none",     // Remove border
+        padding: "8px 12px", // Adjust padding to match the other links
+        cursor: "pointer",  // Change cursor to pointer
+      }}
+    >
+      <i className="fas fa-sign-out-alt me-2"></i> Logout
+    </button>
+  </nav>
+</aside>
+       
 
       {/* Sidebar Toggler */}
       <button className="sidebar-toggler" onClick={toggleSidebar}>

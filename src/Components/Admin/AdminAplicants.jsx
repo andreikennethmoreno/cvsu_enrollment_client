@@ -158,7 +158,7 @@ export default function AdminAplicants() {
       {/* Sidebar */}
       <aside className={`sidebar ${isOpen ? "show" : ""}`}>
         <div className="sidebar-header">
-          <i className="fas fa-user-shield"></i> ADMIN
+          <i className="fas fa-user-shield"></i> DEPARTMENT HEAD
         </div>
         <nav className="nav flex-column active">
           <Link to="/admin" className="nav-link">
