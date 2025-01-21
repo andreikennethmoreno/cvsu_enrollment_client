@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Use useNavigate instead of useHistory
 import axios from "axios";
 
 export default function RegistrarDashboard() {
   const [isOpen, setIsOpen] = useState(false);
   const [students, setStudents] = useState([]);
   const [error, setError] = useState(null);
+  const navigate = useNavigate(); // Use useNavigate hook
 
   const toggleSidebar = () => {
     setIsOpen((prevIsOpen) => {
@@ -41,6 +42,15 @@ export default function RegistrarDashboard() {
       console.error("Error fetching students:", err);
       setError(err.response?.data?.message || "Failed to fetch students");
     }
+  };
+
+  // Logout function
+  const logout = () => {
+    // Remove token from localStorage
+    localStorage.removeItem("token");
+
+    // Redirect to login page
+    navigate("/login"); // Use navigate instead of history.push
   };
 
   // Use effect to fetch data on component mount
@@ -88,7 +98,13 @@ export default function RegistrarDashboard() {
           <Link to="/dashboard/print" className="nav-link">
             <i className="fas fa-print"></i> Printing
           </Link>
+          
         </nav>
+
+        {/* Logout Button */}
+        <button className="nav-link text-danger" onClick={logout}>
+          <i className="fas fa-sign-out-alt"></i> Logout
+        </button>
       </aside>
 
       {/* Sidebar Toggler */}
